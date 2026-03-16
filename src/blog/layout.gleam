@@ -12,6 +12,16 @@ pub fn base(title: String, content: Element(a)) -> Element(a) {
       ]),
       html.title([], title <> " | Blog"),
       html.link([
+        attribute.rel("apple-touch-icon"),
+        attribute.attribute("sizes", "180x180"),
+        attribute.href("/apple-touch-icon.png"),
+      ]),
+      html.link([
+        attribute.rel("icon"),
+        attribute.href("/favicon.ico"),
+        attribute.attribute("sizes", "any"),
+      ]),
+      html.link([
         attribute.rel("icon"),
         attribute.type_("image/svg+xml"),
         attribute.href("/favicon.svg"),

@@ -1,0 +1,16 @@
+name = "blog"
+version = "1.0.0"
+description = "A personal blog built with Gleam and Lustre SSG"
+licences = ["MIT"]
+repository = { type = "github", user = "RodrigoCSoares", repo = "blog" }
+
+[dependencies]
+gleam_stdlib = ">= 0.44.0 and < 2.0.0"
+lustre = ">= 5.6.0 and < 6.0.0"
+lustre_ssg = { git = "https://github.com/lustre-labs/ssg.git", ref = "main" }
+mork = ">= 1.11.1 and < 2.0.0"
+mork_to_lustre = ">= 0.2.1 and < 1.0.0"
+simplifile = ">= 2.4.0 and < 3.0.0"
+
+[dev-dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"

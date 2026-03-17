@@ -39,9 +39,6 @@ pub fn base(title: String, content: Element(a)) -> Element(a) {
     ]),
     html.body([], [
       html.nav([attribute.class("nav")], [
-        html.a([attribute.href("/"), attribute.class("nav-brand")], [
-          element.text("Blog"),
-        ]),
         html.div([attribute.class("nav-links")], [
           html.a([attribute.href("/")], [element.text("Home")]),
           html.a([attribute.href("/blog")], [element.text("Posts")]),

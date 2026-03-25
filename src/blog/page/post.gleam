@@ -13,8 +13,12 @@ pub fn view(p: Post) -> Element(a) {
     html.article([attribute.class("post")], [
       html.header([], [
         html.h1([], [element.text(p.title)]),
-        html.time([attribute.attribute("datetime", p.date)], [
-          element.text(p.date),
+        html.div([attribute.class("post-meta")], [
+          html.span([], [element.text("Rodrigo C. Soares")]),
+          html.span([attribute.class("meta-sep")], [element.text(" · ")]),
+          html.time([attribute.attribute("datetime", p.date)], [
+            element.text(p.date),
+          ]),
         ]),
       ]),
       html.div([attribute.class("post-body")], body_elements),

@@ -209,9 +209,15 @@ a:hover {
   margin-bottom: 0.25rem;
 }
 
-.post time {
+.post-meta {
+  display: flex;
+  align-items: center;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.meta-sep {
+  margin: 0 0.15rem;
 }
 
 .post-body {

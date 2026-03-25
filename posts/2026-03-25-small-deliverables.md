@@ -6,8 +6,6 @@ date: 2026-03-16
 summary: A practical method for splitting large development work into small, reviewable, and independently mergeable pieces
 ---
 
-*The following article was hand written by a human.*
-
 We've all been there. You pick up a story from the backlog, read the requirements, and realize this is going to be a big one. The temptation is to just start coding and figure it out as you go. A few days later you have an 800-line pull request touching 20 files, mixing infrastructure changes with domain logic and workflow wiring. Your reviewers stare at it, leave a few surface-level comments, and approve it because they don't have the energy to truly review the whole thing.
 
 I’m writing this article today to go over how I personally approach software development, and how I try to break big features into small deliverables. This article is based on my personal experiences and my way of working, keep that in mind. I hope you might find something useful within the following lines.
@@ -18,7 +16,7 @@ It’s easier than ever to generate code nowadays. With the advent of LLMs and A
 
 I truly believe that a good software engineer is the one who can ask the most important questions. I have a few sets of questions that guide me when designing a new piece of code. Besides those questions I also try to simplify software by seeing them merely as *functions*–with *inputs* and *outputs*. Every software can be abstracted into one simple abstract *function*, and you can break that function down into smaller functions and you can go as deep as you want or need. The deeper you go, the less abstract your description of said software will be.
 
-Keep that in mind, software can almost always be described as *inputs* and *outputs*. I’ll not delve deep into theoretical computer science/math concepts about *set theory* or *type systems*, but I’d highly recommend you investigating those since they can help you develop a more fundamental understanding of some of the building blocks of what we call software nowadays.
+Keep that in mind, software can almost always be described as *inputs* and *outputs*. I’ll not delve deep into theoretical computer science/math concepts about *set theory* or *type systems*, but I’d highly recommend investigating those since they connect directly to what we’re doing here. When you define a contract you’re really defining a *set* of valid values that a given input or output can take. A type system enforces that set at compile time. The clearer your sets, the clearer your contracts, and the easier it is to reason about each piece in isolation.
 
 ### Design questions
 
@@ -133,6 +131,8 @@ From here you can also try to investigate what the `log contract` looks like and
 
 Once you figure out the *contracts*, you now have all the connections between the steps of your new feature. Now you know how each step connects to each other and you can create individual and actionable tasks. Clear contracts should also enable parallelization of the implementation, so two pieces of the feature should be able to be implemented at the same time as long as they know how the contracts between them look like.
 
+Going back to our example, because we defined the *double entry contract*, the persistence layer can be built and tested on its own without needing the HTTP handler to exist yet. The same goes for the log generation step. It only needs to know the shape of the *transaction contract* to be implemented independently. Both sides agree on the contract, so they can move forward in parallel without blocking each other.
+
 For the aforementioned example you’d probably end up with a list of tasks similar to this:
 
 - Implement new transaction API (attached the transaction input)
@@ -144,4 +144,4 @@ For the aforementioned example you’d probably end up with a list of tasks simi
 
 Once you start mapping your new features into *abstract functions* with clear *inputs* and *outputs*, you should have a clear idea of what is still not mapped and how to move forward. You can always go a layer deeper if needed, but it’s up to you to decide when the design is good enough for the implementation phase.
 
-Having clear contracts also enables a design focused on small units of implementation that are less independent from each other. That approach allows better parallelization of work and small more focused *Pull Requests*. All of that reduces the cognitive workload necessary for implementing such tasks, the effort to review them and also the time and complexity to deliver them. A good software design is simple yet complete; it has clear inputs and outputs (contracts); it empowers parallelization of implementation; and it also enables small continuous deliverables.
+Having clear contracts also enables a design focused on small units of implementation that are more independent from each other. That approach allows better parallelization of work and smaller, more focused *Pull Requests*. All of that reduces the cognitive workload necessary for implementing such tasks, the effort to review them, and the time and complexity to deliver them. A good software design is simple yet complete. It has clear inputs and outputs. It empowers parallelization of implementation and enables small continuous deliverables.

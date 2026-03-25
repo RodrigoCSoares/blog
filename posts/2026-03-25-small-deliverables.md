@@ -2,7 +2,7 @@
 
 id: breaking-down-big-tasks
 title: On breaking down big implementation tasks into small deliverables
-date: 2026-03-16
+date: 2026-03-25
 summary: A practical method for splitting large development work into small, reviewable, and independently mergeable pieces
 ---
 
@@ -12,7 +12,7 @@ I’m writing this article today to go over how I personally approach software d
 
 ## Start on the drawing board, not the code
 
-It’s easier than ever to generate code nowadays. With the advent of LLMs and Agents, coding has never been easier, but has always been the easiest part in software development.
+It’s easier than ever to generate code nowadays. With the advent of LLMs and Agents, the barrier to writing code keeps getting lower, but writing code has always been the simplest part in software development.
 
 I truly believe that a good software engineer is the one who can ask the most important questions. I have a few sets of questions that guide me when designing a new piece of code. Besides those questions I also try to simplify software by seeing them merely as *functions*–with *inputs* and *outputs*. Every software can be abstracted into one simple abstract *function*, and you can break that function down into smaller functions and you can go as deep as you want or need. The deeper you go, the less abstract your description of said software will be.
 

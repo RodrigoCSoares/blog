@@ -12,6 +12,11 @@
   --accent: #6c63ff;
   --muted: #6b7280;
   --border: #e5e7eb;
+  --code-inline-bg: #f0f0f0;
+  --code-block-bg: #1a1a2e;
+  --code-block-fg: #e0e0e0;
+  --blockquote-bg: #f9f9fb;
+  --btn-text: #fff;
   --radius: 6px;
   --max-width: 720px;
 }
@@ -150,7 +155,7 @@ a:hover {
   display: inline-block;
   padding: 0.6rem 1.4rem;
   background: var(--accent);
-  color: #fff;
+  color: var(--btn-text);
   border-radius: var(--radius);
   font-weight: 500;
 }
@@ -276,7 +281,7 @@ a:hover {
 .post-body code {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.875em;
-  background: #f0f0f0;
+  background: var(--code-inline-bg);
   padding: 0.15em 0.35em;
   border-radius: 3px;
 }
@@ -285,8 +290,8 @@ a:hover {
 .post-body pre {
   margin-bottom: 1rem;
   padding: 1rem;
-  background: #1a1a2e;
-  color: #e0e0e0;
+  background: var(--code-block-bg);
+  color: var(--code-block-fg);
   border-radius: var(--radius);
   overflow-x: auto;
   line-height: 1.5;
@@ -306,7 +311,7 @@ a:hover {
   padding: 0.75rem 1rem;
   border-left: 3px solid var(--accent);
   color: var(--muted);
-  background: #f9f9fb;
+  background: var(--blockquote-bg);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
@@ -344,4 +349,20 @@ a:hover {
   text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e0e0e4;
+    --bg: #121220;
+    --accent: #8b83ff;
+    --muted: #9ca3af;
+    --border: #2d2d3f;
+    --code-inline-bg: #1e1e30;
+    --code-block-bg: #0d0d1a;
+    --code-block-fg: #e0e0e0;
+    --blockquote-bg: #1a1a2e;
+    --btn-text: #fff;
+  }
 }
